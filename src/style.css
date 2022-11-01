@@ -1,6 +1,82 @@
-.hello{
-    color:red;
+.hello {
+  color: red;
 }
-body{
-    background-color: gray;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #f7f5f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  color: #696969;
+}
+
+.main {
+  background-color: white;
+  border-radius: 5px;
+  width: 300px;
+  box-shadow: 2px 2px 2px 2px rgb(236, 236, 236);
+}
+
+.heading,
+.add,
+.list {
+  border-bottom: 1px solid #d1d0d1;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.list input {
+  margin-right: 10px;
+}
+
+.add form input {
+  border: none;
+  outline: none;
+  font-style: italic;
+}
+
+.complete {
+  border-radius: 0 0 5px 5px;
+  padding: 20px;
+  text-align: center;
+  background-color: #dcdadc;
+  color: rgb(153, 153, 153);
+  cursor: pointer;
+}
+
+.complete h4 {
+  font-weight: 600;
+}
+
+.list h3 {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+}
+
+.heading h3 {
+  font-size: 17px;
+}
+
+svg {
+  cursor: pointer;
+}
+
+.add svg {
+  transform: rotate(270deg);
+}
+
+@media screen and (min-width: 768px) {
+  .main {
+    width: 500px;
+  }
 }
