@@ -5,12 +5,37 @@ import '@fortawesome/fontawesome-free/js/solid';
 import '@fortawesome/fontawesome-free/js/regular';
 import '@fortawesome/fontawesome-free/js/brands';
 
-// function component() {
-//     const element = document.querySelector('h1');
+const list = document.querySelector('.list-item');
 
-//     element.classList.add('hello');
+const tasks = [
+  {
+    description: 'clean house',
+    complete: false,
+    index: 6,
+  },
+  {
+    description: 'learn english',
+    complete: true,
+    index: 5,
+  },
+];
 
-//     return element;
-//   }
+const render = (task) => {
+  const div = document.createElement('div');
+  div.innerHTML = `
+    <h3>
+        <input type="checkbox">
+            ${task.description}
+    </h3>
+        <div>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+    `;
+  div.classList.add('list');
+  list.appendChild(div);
+};
 
-//   document.body.appendChild(component());
+document.addEventListener('DOMContentLoaded', () => {
+  tasks.sort((a, b) => a.index - b.index)
+    .map((item) => render(item));
+});
