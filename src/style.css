@@ -26,12 +26,31 @@ body {
 }
 
 .heading,
-.add,
 .list {
   border-bottom: 1px solid #d1d0d1;
   padding: 20px;
   display: flex;
   justify-content: space-between;
+}
+
+.btn {
+  background-color: transparent;
+  border: none;
+}
+
+.trash {
+  display: none;
+}
+
+#edit,
+#delete {
+  background-color: transparent;
+  border: none;
+}
+
+.add {
+  border-bottom: 1px solid #d1d0d1;
+  padding: 20px;
 }
 
 .list input {
@@ -41,7 +60,19 @@ body {
 .add form input {
   border: none;
   outline: none;
-  font-style: italic;
+  font-size: 15px;
+}
+
+#editForm input {
+  border: none;
+  outline: none;
+  font-size: 15px;
+  background-color: transparent;
+}
+
+#addForm {
+  display: flex;
+  justify-content: space-between;
 }
 
 .complete {
@@ -57,7 +88,7 @@ body {
   font-weight: 600;
 }
 
-.list h3 {
+.list .item {
   display: flex;
   align-items: center;
   font-size: 15px;
