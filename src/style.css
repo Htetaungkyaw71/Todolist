@@ -26,12 +26,30 @@ body {
 }
 
 .heading,
-.add,
 .list {
   border-bottom: 1px solid #d1d0d1;
   padding: 20px;
   display: flex;
   justify-content: space-between;
+}
+
+.btn{
+  background-color: transparent;
+  border: none;
+}
+
+.trash {
+  display: none;
+}
+
+#edit, #delete {
+  background-color: transparent;
+  border: none;
+}
+
+.add {
+  border-bottom: 1px solid #d1d0d1;
+  padding: 20px;
 }
 
 .list input {
@@ -42,6 +60,11 @@ body {
   border: none;
   outline: none;
   font-style: italic;
+}
+
+#addForm {
+  display: flex;
+  justify-content: space-between;
 }
 
 .complete {
