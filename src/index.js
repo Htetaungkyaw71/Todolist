@@ -1,8 +1,9 @@
 /* eslint-disable import/extensions */
 import './style.css';
 import {
-  render, add, checkLocalStorage, tasks, ChangeEdit, removeDom,
+  render, add, checkLocalStorage, tasks, ChangeEdit, removeDom, clearAll,
 } from './script.js';
+import checkbox from './complete.js';
 import '@fortawesome/fontawesome-free/js/fontawesome';
 import '@fortawesome/fontawesome-free/js/solid';
 import '@fortawesome/fontawesome-free/js/regular';
@@ -26,4 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     .map((item) => render(item));
   ChangeEdit();
   removeDom();
+  checkbox();
+  clearAll();
 });

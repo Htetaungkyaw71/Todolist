@@ -82,6 +82,12 @@ body {
   background-color: #dcdadc;
   color: rgb(153, 153, 153);
   cursor: pointer;
+  transition: 0.4s;
+}
+
+.complete:hover {
+  background-color: #aaa;
+  color: rgb(255, 255, 255);
 }
 
 .complete h4 {
@@ -104,6 +110,11 @@ svg {
 
 .add svg {
   transform: rotate(270deg);
+}
+
+.select {
+  text-decoration: line-through;
+  color: gray;
 }
 
 @media screen and (min-width: 768px) {
