@@ -3,6 +3,9 @@ import './style.css';
 import {
   render, add, checkLocalStorage, tasks, ChangeEdit, removeDom,
 } from './script.js';
+import {
+  checkbox
+} from "./complete.js";
 import '@fortawesome/fontawesome-free/js/fontawesome';
 import '@fortawesome/fontawesome-free/js/solid';
 import '@fortawesome/fontawesome-free/js/regular';
@@ -26,4 +29,5 @@ document.addEventListener('DOMContentLoaded', () => {
     .map((item) => render(item));
   ChangeEdit();
   removeDom();
+  checkbox()
 });

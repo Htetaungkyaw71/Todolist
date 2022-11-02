@@ -46,8 +46,8 @@ const render = (task) => {
       <div class="item">
       <input type="checkbox" class="check">
       <h3>        
-      ${task.description}
-      </h3>
+        ${task.description}
+      </h3>  
       <form action="" id="editForm" class="trash">         
           <input type="text" value="${task.description}" name="task" required>
       </form>
