@@ -85,6 +85,11 @@ body {
   transition: 0.4s;
 }
 
+.rotate:hover {
+  transform: rotate(90deg);
+  transition: 0.5s;
+}
+
 .complete:hover {
   background-color: #aaa;
   color: rgb(255, 255, 255);
