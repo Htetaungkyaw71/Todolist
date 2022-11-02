@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/no-cycle
+import checkbox from './complete.js';
+
 const list = document.querySelector('.list-item');
 
 // eslint-disable-next-line import/no-mutable-exports
@@ -75,6 +78,7 @@ const edit = (id, item) => {
   tasks.splice(editTask.index, 1, item);
   updateLocalStorage();
   removeDom();
+  checkbox();
 };
 
 const ChangeEdit = () => {
@@ -109,14 +113,39 @@ const ChangeEdit = () => {
   });
 };
 
+const clearAll = () => {
+  document.querySelector('.complete').onclick = () => {
+    const cleartasks = [];
+    tasks.filter((task) => task.complete === false).forEach((task, index) => {
+      cleartasks.push({ ...task, index });
+    });
+    tasks = cleartasks;
+    updateLocalStorage();
+    document.querySelectorAll('.check').forEach((check) => {
+      const parent = check.parentElement.parentElement;
+      if (check.checked) {
+        parent.remove();
+      }
+    });
+  };
+};
+
 const add = (task) => {
   tasks.push(task);
   updateLocalStorage();
   render(task);
   ChangeEdit();
   removeDom();
+  checkbox();
 };
 
 export {
-  add, render, updateLocalStorage, checkLocalStorage, tasks, ChangeEdit, removeDom, getTask,
+  add, render,
+  updateLocalStorage,
+  checkLocalStorage,
+  tasks,
+  clearAll,
+  ChangeEdit,
+  removeDom,
+  getTask,
 };
