@@ -3,6 +3,7 @@ import './style.css';
 import {
   render, add, checkLocalStorage, tasks, ChangeEdit, removeDom, clearAll,
 } from './script.js';
+import drag from "./drag.js";
 import checkbox from './complete.js';
 import '@fortawesome/fontawesome-free/js/fontawesome';
 import '@fortawesome/fontawesome-free/js/solid';
@@ -48,4 +49,5 @@ document.addEventListener('DOMContentLoaded', () => {
   checkbox();
   clearAll();
   refresh();
+  drag()
 });

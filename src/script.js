@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-cycle
 import checkbox from './complete.js';
+import drag from "./drag.js";
 
 const list = document.querySelector('.list-item');
 
@@ -45,6 +46,7 @@ const removeDom = () => {
 
 const render = (task) => {
   const div = document.createElement('div');
+  const li = document.createElement('li');
   div.innerHTML = `
       <div class="item">
       <input type="checkbox" class="check">
@@ -54,23 +56,23 @@ const render = (task) => {
       <form action="" id="editForm" class="trash">         
           <input type="text" value="${task.description}" name="task" required>
       </form>
-      </div>
-     
-        
-            <div>
+      </div>   
+          <div>
               <button id="edit">
                   <i class="fa-solid fa-ellipsis-vertical"></i>
               </button>
               <button id="delete" class="trash">
                   <i class="fa-solid fa-trash-can"></i>
-              </button>
-  
-               
-            </div>
+              </button>     
+          </div>
         `;
   div.classList.add('list');
+  div.setAttribute("draggable",true)
+  div.setAttribute("data-index",task.index)
   div.id = task.id;
-  list.appendChild(div);
+  li.appendChild(div)
+  li.className = `li${task.index}`;
+  list.appendChild(li);
 };
 
 const edit = (id, item) => {
@@ -137,6 +139,7 @@ const add = (task) => {
   ChangeEdit();
   removeDom();
   checkbox();
+  drag()
 };
 
 export {
