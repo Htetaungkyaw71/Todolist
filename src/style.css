@@ -7,6 +7,11 @@
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  user-select: none;
+}
+
+ul {
+  list-style-type: none;
 }
 
 body {
@@ -83,6 +88,15 @@ body {
   color: rgb(153, 153, 153);
   cursor: pointer;
   transition: 0.4s;
+}
+
+.list {
+  cursor: pointer;
+}
+
+.rotate:hover {
+  transform: rotate(90deg);
+  transition: 0.5s;
 }
 
 .complete:hover {
