@@ -1,1 +1,36 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Wbpack Exercise</title><script defer="defer" src="index.bundle.js"></script></head><body><h1>Hello webpack!</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todolist</title>
+<script defer src="runtime.bundle.js"></script><script defer src="index.bundle.js"></script></head>
+<body>
+    <div class="main">
+        <div class="heading">
+            <h3>
+                Today's Todo
+            </h3>
+            <div class="rotate">
+                <i class="fa-solid fa-arrows-rotate"></i>
+            </div>
+        </div>
+        <div class="add">
+            <form action="" id="addForm">         
+                <input type="text" placeholder="Add to your list..." name="task" required>
+                <button type="submit" class="btn">
+                    <i class="fa-solid fa-arrow-turn-up"></i>
+                </button>
+            </form>
+        </div>
+        <ul class="list-item">
+
+        </ul>
+        <div class="complete">
+            <h4>
+                Clear all completed
+            </h4>
+        </div>
+    </div>
+</body>
+</html>
