@@ -1,60 +1,57 @@
-import {getTask,updateLocalStorage} from "./script.js"
+// eslint-disable-next-line import/no-cycle
+import { getTask, updateLocalStorage } from './script.js';
 
 let startindex;
 let lastindex;
-let listItems = document.querySelector('.list-item')
 
-const dragstart = (e)=>{
-    startindex = +e.target.getAttribute('data-index');
-}
+const dragstart = (e) => {
+  startindex = +e.target.getAttribute('data-index');
+};
 
-const dragdrop = (e)=>{
-    e.preventDefault()
-    lastindex = +e.target.getAttribute('data-index')
-    swapitems(startindex,lastindex)
+const swapitems = (from, to) => {
+  const itemOne = document.querySelector(`.li${from}`).querySelector('.list');
+  const itemTwo = document.querySelector(`.li${to}`).querySelector('.list');
+  itemOne.setAttribute('data-index', to);
+  itemTwo.setAttribute('data-index', from);
 
-}
+  const taskOne = getTask(itemOne.id);
+  const taskTwo = getTask(itemTwo.id);
 
-const swapitems = (from,to)=>{
-    let itemOne = document.querySelector(`.li${from}`).querySelector('.list')
-    let itemTwo = document.querySelector(`.li${to}`).querySelector('.list')
-    console.log(itemOne)
-    itemOne.setAttribute('data-index',to)
-    itemTwo.setAttribute('data-index',from)
-
-    let taskOne = getTask(itemOne.id)
-    let taskTwo = getTask(itemTwo.id)
-
-    let temp = taskOne.index;
+  if (taskOne.index !== taskTwo.index) {
+    const temp = taskOne.index;
     taskOne.index = taskTwo.index;
     taskTwo.index = temp;
+    updateLocalStorage();
+  }
 
-    updateLocalStorage()
-    
+  document.querySelector(`.li${from}`).appendChild(itemTwo);
+  document.querySelector(`.li${to}`).appendChild(itemOne);
+};
 
-    document.querySelector(`.li${from}`).appendChild(itemTwo)
-    document.querySelector(`.li${to}`).appendChild(itemOne)
-}
+const dragdrop = (e) => {
+  e.preventDefault();
+  if (e.target.tagName.toLowerCase() === 'h3') {
+    lastindex = +e.target.parentElement.parentElement.getAttribute('data-index');
+  } else {
+    lastindex = +e.target.getAttribute('data-index');
+  }
+  swapitems(startindex, lastindex);
+};
 
-const dragover = (e)=>{
-    e.preventDefault()
-}
+const dragover = (e) => {
+  e.preventDefault();
+};
 
+export default () => {
+  const listItem = document.querySelectorAll('.list');
+  const drapLists = document.querySelectorAll('li');
 
+  listItem.forEach((item) => {
+    item.addEventListener('dragstart', dragstart);
+  });
 
-
-export default ()=>{
-    let listItem = document.querySelectorAll('.list')
-    let drapLists = document.querySelectorAll("li")
-
-    listItem.forEach(item=>{
-        item.addEventListener('dragstart',dragstart)
-   
-    })
-
-    drapLists.forEach(list=>{
-        list.addEventListener('drop',dragdrop)
-        list.addEventListener('dragover',dragover)
-    })
-}
-
+  drapLists.forEach((list) => {
+    list.addEventListener('drop', dragdrop);
+    list.addEventListener('dragover', dragover);
+  });
+};

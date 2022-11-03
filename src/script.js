@@ -1,6 +1,7 @@
+/* eslint-disable import/no-cycle */
 // eslint-disable-next-line import/no-cycle
 import checkbox from './complete.js';
-import drag from "./drag.js";
+import drag from './drag.js';
 
 const list = document.querySelector('.list-item');
 
@@ -67,10 +68,10 @@ const render = (task) => {
           </div>
         `;
   div.classList.add('list');
-  div.setAttribute("draggable",true)
-  div.setAttribute("data-index",task.index)
+  div.setAttribute('draggable', true);
+  div.setAttribute('data-index', task.index);
   div.id = task.id;
-  li.appendChild(div)
+  li.appendChild(div);
   li.className = `li${task.index}`;
   list.appendChild(li);
 };
@@ -139,7 +140,7 @@ const add = (task) => {
   ChangeEdit();
   removeDom();
   checkbox();
-  drag()
+  drag();
 };
 
 export {
